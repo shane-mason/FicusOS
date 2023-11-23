@@ -1,4 +1,9 @@
-# Write your code here :-)
+#
+# MIT License (MIT)
+# Copyright (c) 2023 Shane C Mason
+# FicusOS
+#
+
 import board
 import busio
 import neopixel
@@ -9,9 +14,10 @@ import adafruit_ssd1306
 
 TICK_INTERVAL = .1
 
-#setup neopixel strip
+#the signal refers to the boards built in neo-pixel
 signal = neopixel.NeoPixel(board.NEOPIXEL, 8, brightness=0.1, auto_write=False)
 
+#setup the neopixel strip
 strip_len = 8
 strip = neopixel.NeoPixel(board.D2, 8, brightness=0.1, auto_write=False)
 strip.fill((0,0,0))

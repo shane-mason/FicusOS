@@ -1,3 +1,9 @@
+#
+# MIT License (MIT)
+# Copyright (c) 2023 Shane C Mason
+# FicusOS
+#
+
 import random
 
 class FShellStatic:

@@ -1,5 +1,5 @@
 
-#FicusOS Leaf
+# FicusOS Leaf
 Lightshow and environmental monitor for FicusOS
 
 ## Hardware requirements

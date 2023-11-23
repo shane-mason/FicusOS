@@ -1,3 +1,8 @@
+#
+# MIT License (MIT)
+# Copyright (c) 2023 Shane C Mason
+# FicusOS
+#
 import os
 PORT = "COM7"
 files = [ "main.py", "sd_setup.py", "lib/sdcard.py", "lib/ficus/ficus_shell.py", "lib/ficus/ficus_deadletter.py",  "lib/ficus/ficus_stateless.py" ]

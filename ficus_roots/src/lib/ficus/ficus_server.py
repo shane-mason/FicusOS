@@ -1,3 +1,8 @@
+#
+# MIT License (MIT)
+# Copyright (c) 2023 Shane C Mason
+# FicusOS
+#
 import asyncio
 from machine import UART, I2C, Pin, RTC
 import time

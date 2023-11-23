@@ -1,3 +1,8 @@
+#
+# MIT License (MIT)
+# Copyright (c) 2023 Shane C Mason
+# FicusOS
+#
 import machine
 from machine import UART, Pin, RTC
 import time
