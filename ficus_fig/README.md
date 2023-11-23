@@ -3,8 +3,7 @@ The FicusOS shell.
 
 ## Hardware Requirements
 
-* Raspberry Pico W (or similar RP2040 with WLAN support)
-* PCF8523 Realtime Clock breakout on i2c connection
+* Raspberry Pico (or similar RP2040 with 2 UART connections)
 
 ## Install Prequisites
 
@@ -18,7 +17,7 @@ Install ampy
 pip install adafruit-ampy
 ```
 
-Interacting with the persistent realtime-clock breakout requires PCF8523 support. We have included a 3rd party port from https://github.com/mchobby/esp8266-upy/tree/master/pcf8523 - feel free to overwrite with your own implementation for any other device.
+Interacting with the sd-card breakout requires sdcard support. We have included a 3rd party port from https://github.com/micropython/micropython/tree/master/drivers/sdcard - feel free to overwrite with your own implementation for any other device.
 
 
 ### Build to board
