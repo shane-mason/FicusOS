@@ -69,8 +69,8 @@ class FShell():
                     print("Executing:", contents)
                     shared_state = {"shell_response": None, "tokens": tokens, "context": None}
                     exec(contents, {}, shared_state)
-                    print("Shell Response: ", the_dict['shell_response'])
-                    resp = b'\xf9' + bytes(the_dict['shell_response'], 'ascii') + b'\xff'
+                    print("Shell Response: ", shared_state['shell_response'])
+                    resp = b'\xf9' + bytes(shared_state['shell_response'], 'ascii') + b'\xff'
                     found = True
             if not found:
                 resp = b'\xf8' + bytes("I couldn't find that.", 'ascii') + b'\xff';
