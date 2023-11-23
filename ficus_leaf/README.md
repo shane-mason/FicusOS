@@ -34,4 +34,4 @@ neopixel.mpy
 
 Circuit Python devices will mount like an sdcard, so you can simply copy the single file `code.py` over to the device. See [Circuit Python Drives](https://learn.adafruit.com/welcome-to-circuitpython/the-circuitpy-drive) for more information.
 
-Esnure that font5x8.bin is included next to code.py.
+Esnure that font5x8.bin is included next to code.py - this is used to render on the oled
