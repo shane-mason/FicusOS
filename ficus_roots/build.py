@@ -11,8 +11,6 @@ os.chdir("src")
 from pathlib import Path
 
 p = Path(".")
-#for p in path.rglob("*"):
-#     print(str(p).replace("\\", "/"))
 
 files = list(p.glob('**/*.py'))
 
