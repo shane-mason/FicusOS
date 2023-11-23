@@ -1,4 +1,4 @@
-# Ficus OS Webapp
+# FicusOS Webapp
 Server side component - currently used for syncing time and environment readings.
 
 ## Dependencies

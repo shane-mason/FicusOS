@@ -1,6 +1,6 @@
 
 # Ficus wifi login info
-secrets.yaml
+secrets.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

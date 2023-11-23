@@ -17,7 +17,8 @@ def get_time():
         'minute': now.minute,
         'second': now.second,
         'microsecond': now.microsecond,
-        'tzinfo': now.tzinfo
+        'tzinfo': now.tzinfo,
+        'yday' : now.timetuple().tm_yday 
     }
     return resp
 
