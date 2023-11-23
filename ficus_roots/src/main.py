@@ -3,7 +3,8 @@
 # Copyright (c) 2023 Shane C Mason
 # FicusOS
 #
-import uasyncio as asyncio
+
+import asyncio
 from ficus.ficus_server import FicusServer
 import _thread
 from ficus.ficus_piezo import FicusPiezo
