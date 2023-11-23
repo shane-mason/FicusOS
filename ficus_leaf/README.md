@@ -32,6 +32,6 @@ neopixel.mpy
 
 ## Deploy to Device
 
-Circuit Python devices will mount like an sdcard, so you can simply copy the single file `code.py` over to the device.
+Circuit Python devices will mount like an sdcard, so you can simply copy the single file `code.py` over to the device. See [Circuit Python Drives](https://learn.adafruit.com/welcome-to-circuitpython/the-circuitpy-drive) for more information.
 
 Esnure that font5x8.bin is included next to code.py.
