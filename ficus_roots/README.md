@@ -28,11 +28,15 @@ Get com port to update build.py
 python -m serial.tools.list_ports -v
 ```
 
-Update PORT constant in build.py
+Update PORT constant in build.py and sync_back.py
 
 ```
 PORT=<SOME VALUE>
 ```
+
+Deploy OS to board:
+
+```python build.py```
 
 ### Add wifi password
 
