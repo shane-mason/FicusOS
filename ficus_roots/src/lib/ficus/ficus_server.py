@@ -3,11 +3,11 @@
 # Copyright (c) 2023 Shane C Mason
 # FicusOS
 #
-import asyncio
+import uasyncio as asyncio
 from machine import UART, I2C, Pin, RTC
 import time
 import network
-import requests
+import urequests as requests
 import json
 from pcf8523 import PCF8523
 from ficus.server_vine import ServerVine

@@ -1,8 +1,3 @@
-#
-# MIT License (MIT)
-# Copyright (c) 2023 Shane C Mason
-# FicusOS
-#
 from machine import UART, Pin
 from time import time_ns
 from micropython import const

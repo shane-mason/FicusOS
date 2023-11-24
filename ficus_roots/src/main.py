@@ -4,7 +4,7 @@
 # FicusOS
 #
 
-import asyncio
+import uasyncio as asyncio
 from ficus.ficus_server import FicusServer
 import _thread
 from ficus.ficus_piezo import FicusPiezo
