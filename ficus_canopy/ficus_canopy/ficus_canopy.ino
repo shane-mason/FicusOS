@@ -16,6 +16,7 @@ Adafruit_HX8357 tft = Adafruit_HX8357(TFT_CS, TFT_DC, TFT_RST);
 #include "shell_colors.h"
 #include "start_screen.h"
 #include "graphical_shell.h"
+#include "graphics_manager.h"
 
 #define LINE_BUFFER_LEN 255
 #define BYTE_BUFFER_LEN 2
@@ -29,6 +30,8 @@ uint8_t startByte = 0;
 GraphicalShell gshell;
 unsigned long last_time;
 bool led_state = false;
+
+GraphicsManager gman;
 
 Adafruit_NeoPixel strip(NEO_COUNT, NEO_PIN, NEO_GRB + NEO_KHZ800);
 unsigned long pixel_time;
@@ -72,9 +75,15 @@ void loop() {
     if(startByte == VINE_SHELL){
       uint16_t len = Serial1.readBytesUntil(VINE_END, line_buffer, LINE_BUFFER_LEN); 
       line_buffer[len] = '\0';
-      Serial.println("Display Got Shell command:");
+      Serial.println("Display got shell command:");
       Serial.println(line_buffer);
-      gshell.add_command(line_buffer);
+      if(strcmp(line_buffer,"thanks") == 0){
+          Serial.println("IN COMMAND: thanks");
+          gman.thanks();
+      } 
+      else{
+        gshell.add_command(line_buffer);
+      }
 
     }
     else if(startByte == VINE_SHELL_RESPONSE){
