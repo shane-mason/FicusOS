@@ -82,7 +82,7 @@ class FShell():
 
     def time(self, tokens=None, context=None):
         (y, mo, d, wd, h, mi, s, ss) = self.rtc.datetime()
-        return f"{mo}.{d}.{y} {h}:{mi}:{s}.{ss}"
+        return f"{mo:02}.{d:02}.{y:02} {h:02}:{mi:02}:{s:02}.{ss:02}"
     
     def pwd(self, tokens=None, context=None):
         return os.getcwd()
