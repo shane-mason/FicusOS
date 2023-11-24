@@ -37,6 +37,8 @@ class FicusServer():
         
     
     async def run_forever(self):
+        if not self.rtc:
+                self.rtc = RTC()
         print("Starting wlan")
         await self.sync_persistent_time()
         await self.wlan.connect()
@@ -46,7 +48,9 @@ class FicusServer():
             now = self.rtc.datetime()
             print(now)
             
-            
+        now = self.rtc.datetime()
+        self.vine.send_time_sync(now)
+
         _minute_tick = time.ticks_ms()
         
         while True:
