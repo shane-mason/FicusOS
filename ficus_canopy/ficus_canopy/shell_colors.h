@@ -12,6 +12,10 @@
 #define YELLOW   0xFFE0 
 #define WHITE    0xFFFF
 #define ORANGE   0xFC08
+#define BRIGHT_ORANGE 0xFB20
+#define DARK_ORANGE 0xCB20
+#define BROWN 0x9B20
+#define DARK_BROWN 0x6180
 #define COBALT  0x08C6
 #define DARK_GRAY   0x4A49
 #define MEDIUM_GRAY 0x8410
