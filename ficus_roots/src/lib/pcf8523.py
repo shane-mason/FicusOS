@@ -195,8 +195,7 @@ class PCF8523:
             return hour,enable
         else:
             if hour!=None:
-                self.buf1[0] = self.buf1[0] & 0b10000000 # keep enable info
-                self.buf1[0] = self.buf1[0] | (_bin2bcd(hour) & 0b00111111) # inject hour
+                self.buf1[0] = self.buf1[0] & 0b10000000 # keeplf.buf1[0] = self.buf1[0] | (_bin2bcd(hour) & 0b00111111) # inject hour
             if enable!=None:
                 enable = not(enable) # alarm is enabled when 0 is placed into the register
                 self.buf1[0] = self.buf1[0] & 0b01111111 # keep min info
