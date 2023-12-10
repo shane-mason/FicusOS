@@ -1,6 +1,10 @@
 
 # FicusOS Leaf
-Lightshow and environmental monitor for FicusOS
+This node provides environmental monitoring and blinkin' lights for user feedback. It's built on a Sparkfun RP2040 Pro Micro, but any RP2040 should work fine. The software is implemented using Adafruit's CircuitPython for hardware compatibility. This node listens for activity from the keyboard module and reacts to user input via the blinkin' lights. Additionally, it monitors an Adafruit AHT20 - Temperature & Humidity Sensor Breakout and displays current and record temps and humidity on a 0.96-inch OLED I2C IIC Display Module 12864 128x64 Pixel SSD1306.
+
+In the image below, the leaf node is in the middle of the right side.
+
+![Basic reference implementation](../docs/img/ficus-bottom.jpg)
 
 ## Hardware requirements
 

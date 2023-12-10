@@ -1,5 +1,9 @@
 # Ficus Roots
-This repository contains source code and other materials related to the FicusOS Roots module.
+Roots reach outward, and this node provides essential networking support to the Ficus reference implementation. On startup, it connects to the Ficus Web App, requests a time update, and distributes that time across the data bus. If not online, it will read the current time from a battery-backed PCF8523 Realtime Clock breakout on an i2c connection and distribute that time. Since the PCF8523 is known to drift, the Roots node will overwrite PCF8523 time with network time when received. This node is implemented in MicroPython for flexibility.
+
+In the image below, the Roots node is on the right side.
+
+![Basic reference implementation](../docs/img/ficus-middle.jpg)
 
 ## Hardware Requirements
 
