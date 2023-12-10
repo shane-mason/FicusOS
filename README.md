@@ -4,7 +4,7 @@ This repository houses FicusOS, an operating system for the Ficus computer, a cu
 ## Ficus Hardware Architecture
 The overall design philosophy for the Ficus architecture is based around the metaphor of its name-sake tree - with its complex, interconnected roots and branches. The reference implementation for the Ficus architecture is shown below. Each MCU represents a 'node' in the Ficus tree and performs a specific function.
 
-![Basic architecture diagram](docs/img/ficus_main.jpg)
+![Basic architecture diagram](docs/img/ficus-main.jpg)
 
 The diagram below shows the core system and components.
 
