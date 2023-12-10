@@ -6,10 +6,6 @@ The overall design philosophy for the Ficus architecture is based around the met
 
 ![Basic architecture diagram](docs/img/ficus-main.jpg)
 
-The diagram below shows the core system and components. The primary communication between nodes is based on UART and the one-bit data bus is referred to as 'communication vines' in the Ficus metaphor.
-
-![Basic architecture diagram](docs/img/basic-ficus_bb.png)
-
 ## Ficus nodes:
 The reference implementation is made up of 7 nodes and an accompanying web app:
 
@@ -33,3 +29,8 @@ Ficus is built on a 1-bit data bus, and most nodes are restricted to two UART co
 
 ### Ficus Web App
 This is a web application written in Python Flask. It currently provides a time-sync capability used by the Roots node, but it may eventually be used to provide remote input and control of the Ficus computer.
+
+## Ficus Design
+The diagram below shows the core system and components. The primary communication between nodes is based on UART and the one-bit data bus is referred to as 'communication vines' in the Ficus metaphor.
+
+![Basic architecture diagram](docs/img/basic-ficus_bb.png)
