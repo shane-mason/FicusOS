@@ -1,6 +1,8 @@
 # FicusOS Canopy
 
-This is the display module for the FicusOS. It processes incoming shell commands and responses and displays them on a 3.5' tft screen.
+This is the display node for the Ficus reference implementation. It processes incoming shell commands and responses and displays them on a 3.5' TFT screen. It features an Adafruit Metro M4 Express featuring ATSAMD51 for processing and displays on a 3.5" TFT 320x480 + Touchscreen Breakout Board w/MicroSD Socket - HXD8357D. The code is developed in C in Arduino IDE and depends on Phil Hower's Arduino-Pico core and Adafruit's Display library.
+
+![Basic reference implementation](../docs/img/ficus-main.jpg)
 
 ## Hardware Requirements
 
