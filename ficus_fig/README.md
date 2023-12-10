@@ -1,5 +1,9 @@
 # FicusOS Fig
-The FicusOS shell.
+Named after the fruit of the Ficus tree, this node implements user shell functions for the operating system. The reference implementation uses a Raspberry Pico, but any similar RP2040 with at least 2 UART connections would work. The node listens for incoming shell requests, looks across its designated search path (including user space programs) for a matching command, and executes it. Results are sent back to the router node for distribution to other nodes. This node is implemented in MicroPython for flexibility.
+
+In the image below, the Fig is the bottom Raspberry pico on the left side.
+
+![Basic reference implementation](../docs/img/ficus-middle.jpg)
 
 ## Hardware Requirements
 
