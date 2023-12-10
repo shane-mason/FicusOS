@@ -1,3 +1,8 @@
+#
+# MIT License (MIT)
+# Copyright (c) 2023 Shane C Mason
+# FicusOS
+#
 import machine
 import sys
 import time
@@ -7,17 +12,13 @@ import ssd1306
 import rp2
 from wlancomms import WLANComms
 from ficus_piezo import FicusPiezo
+from secrets import wlan_config
 
 FICUS_ID = "Remote"
 DISP_WIDTH = 128
 DISP_HEIGHT = 64
 USE_F = True
 
-#hello world
-wlan_config = {
-    "ssid": "Maui",
-    "pw": "loki2014"
-    }
 
 server_config = {
     "time_url": "http://192.168.1.187:5000/time",

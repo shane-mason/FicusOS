@@ -1,6 +1,6 @@
 # FicusOS Canopy
 
-This is the display module for the FicusOS
+This is the display module for the FicusOS. It processes incoming shell commands and responses and displays them on a 3.5' tft screen.
 
 ## Hardware Requirements
 
