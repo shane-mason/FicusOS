@@ -21,7 +21,7 @@ This node provides USB keyboard input and command line editing. It is built on a
 ### Ficus Leaf
 This node provides environmental monitoring and blinkin' lights for user feedback. It's built on a Sparkfun RP2040 Pro Micro, but any RP2040 should work fine. The software is implemented using Adafruit's CircuitPython for hardware compatibility. This node listens for activity from the keyboard module and reacts to user input via the blinkin' lights. Additionally, it monitors an Adafruit AHT20 - Temperature & Humidity Sensor Breakout and displays current and record temps and humidity on a 0.96-inch OLED I2C IIC Display Module 12864 128x64 Pixel SSD1306.
 
-## Ficus Roots
+### Ficus Roots
 Roots reach outward, and this node provides essential networking support to the Ficus reference implementation. On startup, it connects to the Ficus Web App, requests a time update, and distributes that time across the data bus. If not online, it will read the current time from a battery-backed PCF8523 Realtime Clock breakout on an i2c connection and distribute that time. Since the PCF8523 is known to drift, the Roots node will overwrite PCF8523 time with network time when received. This node is implemented in MicroPython for flexibility.
 
 ### Ficus Trunx
