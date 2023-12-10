@@ -4,7 +4,7 @@ This repository houses FicusOS, an operating system for the Ficus computer, a cu
 ## Ficus Hardware Architecture
 The overall design philosophy for the Ficus architecture is based around the metaphor of its name-sake tree - with its complex, interconnected roots and branches. The reference implementation for the Ficus architecture is shown below. Each MCU represents a 'node' in the Ficus tree and performs a specific function.
 
-![Basic architecture diagram](docs/img/ficus-main.jpg)
+![Basic reference implementation](docs/img/ficus-main.jpg)
 
 ## Ficus nodes:
 The reference implementation is made up of 7 nodes and an accompanying web app:
@@ -16,7 +16,7 @@ This is the display node for the Ficus reference implementation. It processes in
 Named after the fruit of the Ficus tree, this node implements user shell functions for the operating system. The reference implementation uses a Raspberry Pico, but any similar RP2040 with at least 2 UART connections would work. The node listens for incoming shell requests, looks across its designated search path (including user space programs) for a matching command, and executes it. Results are sent back to the router node for distribution to other nodes. This node is implemented in MicroPython for flexibility.
 
 ### Ficus Keys
-This node provides USB keyboard input and command line editing. It is built on an Adafruit Feather RP2040 with a USB Type-A Host. The code is developed in C in Arduino IDE and depends on Phil Hower's Arduino-Pico core and TinyUSB.
+This node provides USB keyboard input and command line editing. It is built on an Adafruit Feather RP2040 with a USB Type-A Host. The node listens for incoming scan codes and converts them to ASCII. Key press events are sent to the Trunx node for processing and displayed on an LCD screen. The edited command is sent to the Trunx for processing when the user presses enter. The code is developed in C in Arduino IDE and depends on Phil Hower's Arduino-Pico core and TinyUSB.
 
 ### Ficus Leaf
 This node provides environmental monitoring and blinkin' lights for user feedback. It's built on a Sparkfun RP2040 Pro Micro, but any RP2040 should work fine. The software is implemented using Adafruit's CircuitPython for hardware compatibility. This node listens for activity from the keyboard module and reacts to user input via the blinkin' lights. Additionally, it monitors an Adafruit AHT20 - Temperature & Humidity Sensor Breakout and displays current and record temps and humidity on a 0.96-inch OLED I2C IIC Display Module 12864 128x64 Pixel SSD1306.
