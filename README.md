@@ -34,3 +34,6 @@ This is a web application written in Python Flask. It currently provides a time-
 The diagram below shows the core system and components. The primary communication between nodes is based on UART and the one-bit data bus is referred to as 'communication vines' in the Ficus metaphor.
 
 ![Basic architecture diagram](docs/img/basic-ficus_bb.png)
+
+## Next steps
+There are several issues with the current setup - of particular concern is copy and paste code between node repositories. Working now to draw from common libs.
