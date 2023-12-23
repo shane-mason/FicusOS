@@ -46,30 +46,36 @@ class FShell():
         #try:
         tokens = command.split()
         resp = ""
+
+        #search for the commsand
         if hasattr(self, tokens[0]):
+            #then it is a built-in command - call member function
             resp = getattr(self, tokens[0])(tokens=tokens, context=None)
-            print("Resp: ", resp)
             resp = b'\xf9' + bytes(resp, 'ascii') + b'\xff'
         elif hasattr(FShellStatic, tokens[0]):
+            #then its a static value - return value
             resp = getattr(FShellStatic, tokens[0])(tokens=tokens, context=None)
             resp = b'\xf9' + bytes(resp, 'ascii') + b'\xff'
         elif hasattr(FShellDeadletter, tokens[0]):
+            #then it specifically not implemented
             resp = getattr(FShellDeadletter, tokens[0])(tokens=tokens, context=None)
             resp = b'\xf9' + bytes(resp, 'ascii') + b'\xff'    
         else:
-            #last chance - check apps dir
+            #last chance - check apps dir to see if its a program in the user filersystem
             files = os.listdir("/safe/apps")
-            print("Looking for:", tokens[0])
             found = False
             for filename in files:
                 if tokens[0] == str(filename):
+                    #we found it in the apps dir
                     full_path = f"/safe/apps/{filename}"
                     fp = open(full_path, "r")
                     contents = fp.read()
-                    print("Executing:", contents)
+                    #print("Executing:", contents)
+                    
+                    #build the shared state and exec the app, passing in the shared state for context
                     shared_state = {"shell_response": None, "tokens": tokens, "context": None}
                     exec(contents, {}, shared_state)
-                    print("Shell Response: ", shared_state['shell_response'])
+                    #print("Shell Response: ", shared_state['shell_response'])
                     resp = b'\xf9' + bytes(shared_state['shell_response'], 'ascii') + b'\xff'
                     found = True
             if not found:
