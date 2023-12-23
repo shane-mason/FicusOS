@@ -23,4 +23,5 @@ class FShellStatic:
     def about(self, tokens=None, context=None):
         return """FICUS OS 0.0.1
 -> it works sometimes."""
+
     
