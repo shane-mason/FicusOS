@@ -1,0 +1,312 @@
+
+//https://rgbcolorpicker.com/565/table
+
+#ifndef F_COLORS_H
+#define F_COLORS_H
+
+#define COLOR_BLACK 0
+#define COLOR_NAVY 1
+#define COLOR_DARKBLUE 2
+#define COLOR_MEDIUMBLUE 3
+#define COLOR_BLUE 4
+#define COLOR_DARKGREEN 5
+#define COLOR_GREEN 6
+#define COLOR_TEAL 7
+#define COLOR_DARKCYAN 8
+#define COLOR_DEEPSKYBLUE 9
+#define COLOR_DARKTURQUOISE 10
+#define COLOR_MEDIUMSPRINGGREEN 11
+#define COLOR_LIME 12
+#define COLOR_SPRINGGREEN 13
+#define COLOR_AQUA 14
+#define COLOR_CYAN 15
+#define COLOR_MIDNIGHTBLUE 16
+#define COLOR_FORESTGREEN 17
+#define COLOR_DODGERBLUE 18
+#define COLOR_LIGHTSEAGREEN 19
+#define COLOR_DARKSLATEGRAY 20
+#define COLOR_DARKSLATEGREY 21
+#define COLOR_SEAGREEN 22
+#define COLOR_LIMEGREEN 23
+#define COLOR_MEDIUMSEAGREEN 24
+#define COLOR_ROYALBLUE 25
+#define COLOR_TURQUOISE 26
+#define COLOR_INDIGO 27
+#define COLOR_DARKSLATEBLUE 28
+#define COLOR_STEELBLUE 29
+#define COLOR_MEDIUMTURQUOISE 30
+#define COLOR_DARKOLIVEGREEN 31
+#define COLOR_CORNFLOWERBLUE 32
+#define COLOR_CADETBLUE 33
+#define COLOR_MEDIUMAQUAMARINE 34
+#define COLOR_SLATEBLUE 35
+#define COLOR_DIMGRAY 36
+#define COLOR_DIMGREY 37
+#define COLOR_OLIVEDRAB 38
+#define COLOR_SLATEGRAY 39
+#define COLOR_SLATEGREY 40
+#define COLOR_LIGHTSLATEGRAY 41
+#define COLOR_LIGHTSLATEGREY 42
+#define COLOR_MEDIUMSLATEBLUE 43
+#define COLOR_LAWNGREEN 44
+#define COLOR_CHARTREUSE 45
+#define COLOR_AQUAMARINE 46
+#define COLOR_MAROON 47
+#define COLOR_PURPLE 48
+#define COLOR_OLIVE 49
+#define COLOR_GRAY 50
+#define COLOR_GREY 51
+#define COLOR_SKYBLUE 52
+#define COLOR_LIGHTSKYBLUE 53
+#define COLOR_DARKRED 54
+#define COLOR_DARKMAGENTA 55
+#define COLOR_BLUEVIOLET 56
+#define COLOR_SADDLEBROWN 57
+#define COLOR_DARKSEAGREEN 58
+#define COLOR_DARKVIOLET 59
+#define COLOR_MEDIUMPURPLE 60
+#define COLOR_LIGHTGREEN 61
+#define COLOR_PALEGREEN 62
+#define COLOR_DARKORCHID 63
+#define COLOR_SIENNA 64
+#define COLOR_YELLOWGREEN 65
+#define COLOR_BROWN 66
+#define COLOR_DARKGRAY 67
+#define COLOR_DARKGREY 68
+#define COLOR_LIGHTSTEELBLUE 69
+#define COLOR_LIGHTBLUE 70
+#define COLOR_POWDERBLUE 71
+#define COLOR_PALETURQUOISE 72
+#define COLOR_GREENYELLOW 73
+#define COLOR_FIREBRICK 74
+#define COLOR_DARKGOLDENROD 75
+#define COLOR_MEDIUMORCHID 76
+#define COLOR_ROSYBROWN 77
+#define COLOR_DARKKHAKI 78
+#define COLOR_SILVER 79
+#define COLOR_MEDIUMVIOLETRED 80
+#define COLOR_INDIANRED 81
+#define COLOR_PERU 82
+#define COLOR_CHOCOLATE 83
+#define COLOR_TAN 84
+#define COLOR_THISTLE 85
+#define COLOR_LIGHTGRAY 86
+#define COLOR_LIGHTGREY 87
+#define COLOR_CRIMSON 88
+#define COLOR_PALEVIOLETRED 89
+#define COLOR_ORCHID 90
+#define COLOR_PLUM 91
+#define COLOR_GOLDENROD 92
+#define COLOR_BURLYWOOD 93
+#define COLOR_GAINSBORO 94
+#define COLOR_LIGHTCYAN 95
+#define COLOR_DARKSALMON 96
+#define COLOR_LAVENDER 97
+#define COLOR_LIGHTCORAL 98
+#define COLOR_VIOLET 99
+#define COLOR_KHAKI 100
+#define COLOR_PALEGOLDENROD 101
+#define COLOR_ALICEBLUE 102
+#define COLOR_HONEYDEW 103
+#define COLOR_AZURE 104
+#define COLOR_SALMON 105
+#define COLOR_SANDYBROWN 106
+#define COLOR_WHEAT 107
+#define COLOR_ANTIQUEWHITE 108
+#define COLOR_LINEN 109
+#define COLOR_BEIGE 110
+#define COLOR_WHITESMOKE 111
+#define COLOR_GHOSTWHITE 112
+#define COLOR_LIGHTGOLDENRODYELLOW 113
+#define COLOR_MINTCREAM 114
+#define COLOR_RED 115
+#define COLOR_FUCHSIA 116
+#define COLOR_MAGENTA 117
+#define COLOR_DEEPPINK 118
+#define COLOR_ORANGERED 119
+#define COLOR_TOMATO 120
+#define COLOR_HOTPINK 121
+#define COLOR_CORAL 122
+#define COLOR_DARKORANGE 123
+#define COLOR_LIGHTSALMON 124
+#define COLOR_ORANGE 125
+#define COLOR_LIGHTPINK 126
+#define COLOR_PINK 127
+#define COLOR_GOLD 128
+#define COLOR_PEACHPUFF 129
+#define COLOR_NAVAJOWHITE 130
+#define COLOR_MOCCASIN 131
+#define COLOR_BISQUE 132
+#define COLOR_MISTYROSE 133
+#define COLOR_BLANCHEDALMOND 134
+#define COLOR_PAPAYAWHIP 135
+#define COLOR_LAVENDERBLUSH 136
+#define COLOR_CORNSILK 137
+#define COLOR_OLDLACE 138
+#define COLOR_SEASHELL 139
+#define COLOR_LEMONCHIFFON 140
+#define COLOR_FLORALWHITE 141
+#define COLOR_SNOW 142
+#define COLOR_YELLOW 143
+#define COLOR_LIGHTYELLOW 144
+#define COLOR_IVORY 145
+#define COLOR_WHITE 146
+//in order until here
+#define COLOR_VERYGRAY 147
+#define COLOR_SOGRAY 148
+#define COLOR_ALMOSTBLACK 149
+
+uint16_t color_array[] = {
+  0x0000,
+  0x0010,
+  0x0011,
+  0x0019,
+  0x001f,
+  0x0320,
+  0x0400,
+  0x0410,
+  0x0451,
+  0x05ff,
+  0x0679,
+  0x07d3,
+  0x07e0,
+  0x07ef,
+  0x07ff,
+  0x07ff,
+  0x18ce,
+  0x2444,
+  0x249f,
+  0x2595,
+  0x328a,
+  0x328a,
+  0x344b,
+  0x3666,
+  0x3d8e,
+  0x435b,
+  0x46f9,
+  0x4810,
+  0x49f1,
+  0x4c16,
+  0x4e99,
+  0x5346,
+  0x64bd,
+  0x64f3,
+  0x6675,
+  0x6ad9,
+  0x6b4d,
+  0x6b4d,
+  0x6c64,
+  0x7412,
+  0x7412,
+  0x7453,
+  0x7453,
+  0x7b5d,
+  0x7fc0,
+  0x7fe0,
+  0x7ffa,
+  0x8000,
+  0x8010,
+  0x8400,
+  0x8410,
+  0x8410,
+  0x867d,
+  0x867e,
+  0x8800,
+  0x8811,
+  0x897b,
+  0x8a22,
+  0x8dd1,
+  0x901a,
+  0x939b,
+  0x9772,
+  0x97d2,
+  0x9999,
+  0x9a85,
+  0x9e66,
+  0xa145,
+  0xad55,
+  0xad55,
+  0xae1b,
+  0xaebc,
+  0xaefc,
+  0xaf7d,
+  0xafe6,
+  0xb104,
+  0xb421,
+  0xbaba,
+  0xbc71,
+  0xbdad,
+  0xbdf7,
+  0xc0b0,
+  0xcaeb,
+  0xcc28,
+  0xd344,
+  0xd591,
+  0xd5fa,
+  0xd69a,
+  0xd69a,
+  0xd8a7,
+  0xdb92,
+  0xdb9a,
+  0xdd1b,
+  0xdd24,
+  0xddb0,
+  0xdedb,
+  0xdfff,
+  0xe4af,
+  0xe73e,
+  0xec10,
+  0xec1d,
+  0xef31,
+  0xef35,
+  0xefbf,
+  0xeffd,
+  0xefff,
+  0xf40e,
+  0xf52c,
+  0xf6f6,
+  0xf75a,
+  0xf77c,
+  0xf7bb,
+  0xf7be,
+  0xf7bf,
+  0xf7da,
+  0xf7fe,
+  0xf800,
+  0xf81f,
+  0xf81f,
+  0xf8b2,
+  0xfa20,
+  0xfb09,
+  0xfb56,
+  0xfbea,
+  0xfc60,
+  0xfd0f,
+  0xfd20,
+  0xfdb7,
+  0xfdf9,
+  0xfea0,
+  0xfed6,
+  0xfef5,
+  0xff16,
+  0xff18,
+  0xff1b,
+  0xff59,
+  0xff7a,
+  0xff7e,
+  0xffbb,
+  0xffbc,
+  0xffbd,
+  0xffd9,
+  0xffdd,
+  0xffde,
+  0xffe0,
+  0xfffb,
+  0xfffd,
+  0xffff,
+  0x2124,
+  0x10a2,
+  0x1082
+};
+
+#endif
