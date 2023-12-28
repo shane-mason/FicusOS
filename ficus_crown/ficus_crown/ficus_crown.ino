@@ -22,7 +22,14 @@ DVIGFX8 f_display(DVI_RES_320x240p60, false, adafruit_feather_dvi_cfg);
 
 GraphicalShellDVI f_shell(&f_display);
 
+#define READ_BUFFER_LEN 1024
+#define BYTE_BUFFER_LEN 2
+
+char read_buffer[READ_BUFFER_LEN];
+char byte_buffer[BYTE_BUFFER_LEN];
+
 void setup() { // Runs once on startup
+  Serial1.begin(38400);
   if (!f_display.begin()) { // Blink LED if insufficient RAM
     pinMode(LED_BUILTIN, OUTPUT);
     for (;;) digitalWrite(LED_BUILTIN, (millis() / 500) & 1);
@@ -40,6 +47,7 @@ void setup() { // Runs once on startup
   wait_screen();
   wait_screen();
   wait_screen();
+  Serial.println("Starting main loop");
   f_shell.setup();
 }
 
@@ -76,30 +84,92 @@ void wait_screen(){
   
 }
 
+
+// received incoming shell command header
+void handle_shell_command(){
+  uint16_t len = Serial1.readBytesUntil(VINE_END, read_buffer, READ_BUFFER_LEN);
+  read_buffer[len] = '\0';
+  Serial.println("GOT COMMAND: ");
+  Serial.println(read_buffer);
+  f_shell.add_command(read_buffer);
+}
+
+// received incoming shell response header
+void handle_shell_response(){
+  uint16_t len = Serial1.readBytesUntil(VINE_END, read_buffer, READ_BUFFER_LEN);
+  read_buffer[len] = '\0';
+  Serial.println("GOT RESPONSE: ");
+  Serial.println(read_buffer);
+  f_shell.add_response(read_buffer);
+}
+
+// received incoming error header
+void handle_error(){
+  uint16_t len = Serial1.readBytesUntil(VINE_END, read_buffer, READ_BUFFER_LEN);
+  read_buffer[len] = '\0';
+  Serial.println("GOT Err: ");
+  Serial.println(read_buffer);
+  f_shell.add_error(read_buffer);
+}
+
+//received incoming keypress header
+void handle_keypress(){
+  uint16_t len = Serial1.readBytesUntil(VINE_END, byte_buffer, BYTE_BUFFER_LEN);
+  byte_buffer[len] = '\0';
+  Serial.println("GOT KEYPRESS: ");
+  Serial.println(byte_buffer);
+  f_shell.add_keypress(byte_buffer);
+   
+}
+
 void loop() {
+  
+  if(Serial1.available() > 0){
+    uint8_t header_byte = Serial1.read();
+    Serial.println("Data available");
+    switch (header_byte){
+        case VINE_SHELL:
+          handle_shell_command();
+          break;
+
+        case VINE_SHELL_RESPONSE:
+          handle_shell_response();
+          break;
+
+        case VINE_SHELL_ERROR:
+          handle_error();
+          break;
+
+        case VINE_KEYPRESS:
+          handle_keypress();
+          break;
+
+        case VINE_GFX_START:
+          break;
+
+        default:
+          Serial.println("Incoming messages started with unknown header: ");
+          Serial.println(header_byte); 
+    }
+
     
-  delay(2000);
-  f_shell.add_command("Command 1 goes here");
-  delay(2000);
-  f_shell.add_response("Response 1 goes here");
 
-  delay(3000);
-  f_shell.add_command("Command 2 goes here");
-  delay(2000);
-  f_shell.add_response("Response 2 goes here");
-
-  delay(3000);
-  f_shell.add_command("Command 3 goes here");
-  delay(2000);
-  f_shell.add_error("Error 1 goes here");
-
-  delay(3000);
-  f_shell.add_command("Command 4 goes here");
-  delay(2000);
-  f_shell.add_response("Response 4 goes here");
+  }    
 
 
-  // Swap front/back buffers, do not duplicate current screen state to next frame,
-  // we'll draw it new from scratch each time.
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

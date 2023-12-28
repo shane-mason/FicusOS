@@ -79,6 +79,10 @@ class GraphicalShellDVI{
       display->swap();
     }
 
+    void add_keypress(char* press){
+      //todo
+    }
+
     void draw_shell(){
       display->fillScreen(0);
       
