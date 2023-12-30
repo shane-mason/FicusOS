@@ -6,9 +6,27 @@
 #include <Adafruit_NeoPixel.h>
 
 // These are 'flexible' lines that can be changed
-#define TFT_CS 9
-#define TFT_DC 10
-#define TFT_RST -1 // RST can be set to -1 if you tie it to Arduino's reset
+#define TFT_CS 17
+#define TFT_DC 20
+#define TFT_RST 21 // RST can be set to -1 if you tie it to Arduino's reset
+
+/*
+
+Pico wiring:
+
+Display->Pico
+
+GND   ->  GND       =>pin 23
+3-5V  ->  3V3(OUT)  =>pin 36
+CLK   ->  SPI SCK   => GP18 
+MISO  ->  SPI RX    => GP16
+MOSI  ->  SPI TX    => GP19
+CS    ->  SPI CSn   => GP17
+D/C   ->            => GP20
+Reset ->            => GP21
+
+
+*/
 
 // Use hardware SPI (on Uno, #13, #12, #11) and the above for CS/DC
 Adafruit_HX8357 tft = Adafruit_HX8357(TFT_CS, TFT_DC, TFT_RST);
