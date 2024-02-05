@@ -1,5 +1,8 @@
 from flask import Flask
 import datetime
+import json
+from datetime import datetime
+import news_pull
 
 app = Flask("ficus_server")
 env_readings = {}  
@@ -21,6 +24,11 @@ def get_time():
         'yday' : now.timetuple().tm_yday 
     }
     return resp
+
+
+@app.route("/news")
+def news_feed():
+    return news_pull.curate_articles()
 
 @app.route("/env")
 @app.route("/env/<fid>/<c>/<h>")
