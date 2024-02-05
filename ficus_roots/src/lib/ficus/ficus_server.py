@@ -15,7 +15,8 @@ from ficus.secrets import wlan_config
 
 
 server_config = {
-    "time_url": "http://192.168.1.187:5000/time"
+    "time_url": "http://192.168.1.187:5000/time",
+    "news_url": "http://192.168.1.187:5000/news"
     }
 
 comm_pins = {
@@ -34,6 +35,7 @@ class FicusServer():
         i2c = I2C(0, sda=Pin(20), scl=Pin(21))
         self.pcf = PCF8523( i2c )
         self.vine = ServerVine(0, 38400, rxpin=comm_pins['servrx'], txpin=comm_pins['servtx'])
+        self.news_articles = []
         
     
     async def run_forever(self):
@@ -97,6 +99,10 @@ class FicusServer():
             
         else:
             print ("Got nothing back...")
+
+    async def sync_server_news(self):
+        print("Sync server news")
+        self.news_articles = self.wlan.get_url(server_config['news_url'])
             
     async def send_time_update(self):
         pass
