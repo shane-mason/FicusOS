@@ -6,6 +6,8 @@
 #include "graphical_shell_dvi.h"
 #include "ficus_vine_format.h"
 
+// #define USE_DVI
+
 // Here's how a 320x240 8-bit (color-paletted) framebuffer is declared.
 // Second argument ('true' here) enables double-buffering for flicker-free
 // animation. Third argument is a hardware configuration -- examples are
@@ -19,7 +21,6 @@ DVIGFX8 f_display(DVI_RES_320x240p60, false, adafruit_feather_dvi_cfg);
 // May require selecting QSPI div4 clock (Tools menu) to slow down flash
 // accesses, may require further over-volting the CPU to 1.25 or 1.3 V.
 //DVIGFX8 f_display(DVI_RES_400x240p60, true, adafruit_feather_dvi_cfg);
-
 GraphicalShellDVI f_shell(&f_display);
 
 #define READ_BUFFER_LEN 1024
@@ -31,7 +32,9 @@ char byte_buffer[BYTE_BUFFER_LEN];
 void setup() { // Runs once on startup
   Serial1.begin(38400);
   if (!f_display.begin()) { // Blink LED if insufficient RAM
+    
     pinMode(LED_BUILTIN, OUTPUT);
+    
     for (;;) digitalWrite(LED_BUILTIN, (millis() / 500) & 1);
   }
 

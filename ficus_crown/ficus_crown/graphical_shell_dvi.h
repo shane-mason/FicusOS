@@ -13,7 +13,9 @@
 class GraphicalShellDVI{
 
   private:
+
     DVIGFX8* display;
+
     uint16_t cx;
     uint16_t cy;
     uint16_t widget_width;
@@ -21,6 +23,7 @@ class GraphicalShellDVI{
     char response_text[1024];
 
   public:
+
 
     GraphicalShellDVI(DVIGFX8* disp){
       display = disp;
