@@ -27,4 +27,9 @@ class ServerVine:
         year-=2000
         msg = bytes([VINE_TIME_SYNC, year, month, day, weekday, hours, minutes, seconds, subseconds, VINE_END])
         self.uart.write(msg)
+
+    def send_news_sync(self, content):
+        # 219 for vine sync
+        msg = b'\xdb' + bytes(content, 'ascii') + b'\xff'
+        self.uart.write(msg)
     

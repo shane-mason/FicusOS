@@ -9,10 +9,13 @@ import time
 import network
 import urequests as requests
 import json
+import random
 from pcf8523 import PCF8523
 from ficus.server_vine import ServerVine
 from ficus.secrets import wlan_config
+from micropython import const
 
+MILLISEC_IN_MINUTES = const(60000)
 
 server_config = {
     "time_url": "http://192.168.1.187:5000/time",
@@ -48,24 +51,35 @@ class FicusServer():
             
             await self.sync_server_time()
             now = self.rtc.datetime()
-            print(now)
             
         now = self.rtc.datetime()
         self.vine.send_time_sync(now)
 
         _minute_tick = time.ticks_ms()
-        
+        _cron_minutes = 0
         while True:
-            _tick = time.ticks_ms()
+            _current_tick = time.ticks_ms()
             
             self.led.toggle()
             #asyncio.create_task(self._tick_kb())
             
-            if time.ticks_diff(_tick, _minute_tick) >= 12000:
-                now = self.rtc.datetime()
-                print("Sending Time: ", now)
-                self.vine.send_time_sync(now)
-                _minute_tick = _tick
+            if time.ticks_diff(_current_tick, _minute_tick) >= 12000:
+                asyncio.create_task(self.send_time_sync())
+                asyncio.create_task(self.send_article_sync())
+                _minute_tick = _current_tick
+                _cron_minutes += 1
+            if _cron_minutes % 10 == 0:
+                # every 10 minute cron
+                pass
+            if _cron_minutes % 20 == 0:
+                # every 20 minute cron
+                pass
+            if _cron_minutes % 30 == 0:
+                # every 30 minute cron
+                asyncio.create_task(self.sync_server_news())
+            if _cron_minutes % 60 == 0:
+                # every 60 minute cron
+                pass
 
     async def sync_persistent_time(self):
         print("Sync persistent time")
@@ -103,9 +117,15 @@ class FicusServer():
     async def sync_server_news(self):
         print("Sync server news")
         self.news_articles = self.wlan.get_url(server_config['news_url'])
-            
+
+    async def send_article_sync(self):
+        print("Sending news article")
+        article = random.choice(self.news_articles)
+        self.vine.send_news(article["description"])
+
     async def send_time_update(self):
-        pass
+        now = self.rtc.datetime()
+        self.vine.send_time_sync(now)
 
 class WLANComms:
     

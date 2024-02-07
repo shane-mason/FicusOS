@@ -1,5 +1,4 @@
 from flask import Flask
-import datetime
 import json
 from datetime import datetime
 import news_pull
@@ -10,7 +9,7 @@ env_readings = {}
 
 @app.route("/time")
 def get_time():
-    now = datetime.datetime.now()
+    now = datetime.now()
     resp = {
         'year': now.year,
         'month': now.month,

@@ -1,5 +1,5 @@
 
-import secrets
+import secret
 import json
 import urllib.request
 from datetime import datetime
@@ -8,7 +8,7 @@ news_data_file = "news.json"
 seconds_to_stale = 3600
 def pull_news():
     # https://newsapi.org/docs/endpoints
-    url = "https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&apiKey=" + secrets.news_api_key
+    url = "https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&apiKey=" + secret.news_api_key
     contents = urllib.request.urlopen(url).read()
     data = json.loads(contents)
 
