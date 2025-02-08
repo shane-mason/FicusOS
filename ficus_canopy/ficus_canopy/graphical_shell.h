@@ -55,8 +55,8 @@ class GraphicalShell{
       tft.drawBitmap(PADDING_LEFT, TOP_PANEL_Y, topPanel.getBuffer(),
       topPanel.width(), topPanel.height(), GREEN0, COBALT);
 
-      bottomPanel.setCursor(0, 5);
-      bottomPanel.print("Hang tight, getting that for you!");
+      //bottomPanel.setCursor(12, 5);
+      //bottomPanel.print("Hang tight, getting that for you!");
 
       tft.drawBitmap(PADDING_LEFT, BOTTOM_PANEL_Y, bottomPanel.getBuffer(),
       bottomPanel.width(), bottomPanel.height(), ORANGE, COBALT);
@@ -93,7 +93,7 @@ class GraphicalShell{
       tft.setCursor(20, 5);
       tft.setTextColor(YELLOW);  
       tft.setTextSize(2);
-      tft.println("FICUS SHELL 0.0.2");
+      tft.println("FICUS SHELL 0.4");
       tft.drawRoundRect(20, 25, TOP_PANEL_WIDTH+20, TOP_PANEL_HEIGHT+10, 5, DARK_GRAY);
       tft.drawRoundRect(20, 90, BOTTOM_PANEL_WIDTH+20, BOTTOM_PANEL_HEIGHT+10, 5, DARK_GRAY);
     }

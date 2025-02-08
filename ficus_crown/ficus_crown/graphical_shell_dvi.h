@@ -3,12 +3,16 @@
 
 #include "ficus_colors_rgb565.h"
 
-#define WIDGET_PADDING 5
+#define WIDGET_PADDING_X 0
+#define WIDGET_PADDING_Y 5
+#define TEXT_PADDING_X 25
+#define LINE_SPACING 12
 #define TOP_WIDGET_Y 20
 #define TOP_WIDGET_HEIGHT 30
 #define BOTTOM_WIDGET_Y 60
-#define BOTTOM_WIDGET_HEIGHT 170
+#define BOTTOM_WIDGET_HEIGHT 150
 #define WAITING_MESSAGE "Hang tight, getting a response to that..."
+
 
 class GraphicalShellDVI{
 
@@ -29,9 +33,9 @@ class GraphicalShellDVI{
       display = disp;
       cx = display->width() / 2;
       cy = display->height() / 2;
-      widget_width = display->width() + (WIDGET_PADDING*2);
+      widget_width = display->width();
       strcpy(command_text, "Welcome to Ficus Shell DVI!");
-      strcpy(response_text,"Use input buffer to enter command and press enter.\nCommands and responses will show up here.\n\nPress escape to clear.");
+      strcpy(response_text,"Press enter to execute buffer.\nCommands and responses will show up here.\n\nPress escape to clear.");
     }
 
     void setup(){
@@ -39,27 +43,24 @@ class GraphicalShellDVI{
     }
 
     void draw_top_panel(){
-      display->fillRect(-WIDGET_PADDING, TOP_WIDGET_Y, widget_width, TOP_WIDGET_HEIGHT, COLOR_ALMOSTBLACK);
-      display->drawRect(-WIDGET_PADDING, TOP_WIDGET_Y, widget_width, TOP_WIDGET_HEIGHT, COLOR_STEELBLUE);
+      display->fillRect(WIDGET_PADDING_X, TOP_WIDGET_Y, widget_width, TOP_WIDGET_HEIGHT, COLOR_ALMOSTBLACK);
+      display->drawRect(WIDGET_PADDING_X, TOP_WIDGET_Y, widget_width, TOP_WIDGET_HEIGHT, COLOR_STEELBLUE);
       display->setTextColor(COLOR_YELLOW);
-      display->setCursor(1, TOP_WIDGET_Y+5);
-      display->print(command_text);
+      draw_text(command_text, TOP_WIDGET_Y+5);
     }
 
     void draw_bottom_panel(){
-      display->fillRect(-WIDGET_PADDING, BOTTOM_WIDGET_Y, widget_width, BOTTOM_WIDGET_HEIGHT, COLOR_ALMOSTBLACK);
-      display->drawRect(-WIDGET_PADDING, BOTTOM_WIDGET_Y, widget_width, BOTTOM_WIDGET_HEIGHT, COLOR_STEELBLUE);
+      display->fillRect(WIDGET_PADDING_X, BOTTOM_WIDGET_Y, widget_width, BOTTOM_WIDGET_HEIGHT, COLOR_ALMOSTBLACK);
+      display->drawRect(WIDGET_PADDING_X, BOTTOM_WIDGET_Y, widget_width, BOTTOM_WIDGET_HEIGHT, COLOR_STEELBLUE);
       display->setTextColor(COLOR_SPRINGGREEN);
-      display->setCursor(1, BOTTOM_WIDGET_Y+5);
-      display->print(response_text);
+      draw_text(response_text, BOTTOM_WIDGET_Y+5);
     }
 
     void draw_error_panel(){
-      display->fillRect(-WIDGET_PADDING, BOTTOM_WIDGET_Y, widget_width, BOTTOM_WIDGET_HEIGHT, COLOR_ALMOSTBLACK);
-      display->drawRect(-WIDGET_PADDING, BOTTOM_WIDGET_Y, widget_width, BOTTOM_WIDGET_HEIGHT, COLOR_RED);
+      display->fillRect(WIDGET_PADDING_X, BOTTOM_WIDGET_Y, widget_width, BOTTOM_WIDGET_HEIGHT, COLOR_ALMOSTBLACK);
+      display->drawRect(WIDGET_PADDING_X, BOTTOM_WIDGET_Y, widget_width, BOTTOM_WIDGET_HEIGHT, COLOR_RED);
       display->setTextColor(COLOR_RED);
-      display->setCursor(1, BOTTOM_WIDGET_Y+5);
-      display->print(response_text);
+      draw_text(response_text, BOTTOM_WIDGET_Y+5);
     }
 
     void add_command(char* text){
@@ -92,13 +93,29 @@ class GraphicalShellDVI{
       // Setup the app labels
       display->setTextSize(1);
       display->setTextColor(COLOR_DODGERBLUE);
-      display->setCursor(1, WIDGET_PADDING);
-      display->print(F("Ficus Shell - 0.3 DVI"));
-      
+      draw_text("Ficus Shell - 0.4 DVI", 5);
+      //draw_text(response_text, 5);
+
       //draw rest of the pieces
       draw_top_panel();
       draw_bottom_panel();
       display->swap();
+    }
+
+    void draw_text(char* text, uint16_t y_start){
+      char *end, *r, *tok;
+      uint16_t current_y = y_start;
+      r = end = strdup(text);
+      assert(end != NULL);
+
+      while ((tok = strsep(&end, "\n")) != NULL) {
+        display->setCursor(TEXT_PADDING_X, current_y);
+        display->print(tok);
+        current_y += LINE_SPACING;
+      }
+
+      free(r);
+     
     }
 
 };
